@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane
+        maxHeight="-Infinity"
+        maxWidth="-Infinity"
+        minHeight="-Infinity"
+        minWidth="-Infinity"
+        prefHeight="400.0"
+        fx:id="rootPane"
+        prefWidth="600.0"
+        style="-fx-background-color: black;"
+        xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.example.game.HelloController"
+        onKeyPressed="#handleKeyPressed"
+        onKeyReleased="#handleKeyReleased"
+>
+   <children>
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutY="-12.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="600.0" />
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="20.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="52.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="85.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="117.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="151.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="185.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="219.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="252.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="285.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="317.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="349.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle fx:id="secondPlayerRacket" arcHeight="5.0" fill="#a19e9e" height="90.0" layoutX="14.0" layoutY="118.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle fx:id="firstPlayerRacket" arcHeight="5.0" fill="#a19e9e" height="90.0" layoutX="568.0" layoutY="212.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle fx:id="ball" arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="444.0" layoutY="229.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Text id="second_player_score" fill="WHITE" layoutX="208.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" wrappingWidth="44.27099609375">
+         <font>
+            <Font size="59.0" />
+         </font>
+      </Text>
+      <Text fx:id="firstPlayerScore" fill="WHITE" layoutX="347.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="44.27099609375">
+         <font>
+            <Font size="59.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutY="380.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="600.0" />
+   </children>
+</AnchorPane>
