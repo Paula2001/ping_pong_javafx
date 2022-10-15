@@ -94,10 +94,15 @@ public class HelloController {
 //            }
             if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent())) {
                 System.out.println("first player racket");
+                xDir = -1 * xDir ;
+                yDir = -1 * yDir ;
             }
 
             if (ball.getBoundsInParent().intersects(secondPlayerRacket.getBoundsInParent())) {
                 System.out.println("second player racket");
+                xDir = -1 * xDir ;
+                yDir = -1 * yDir ;
+
             }
 
             if (ball.getBoundsInParent().intersects(topBorder.getBoundsInParent())) {
