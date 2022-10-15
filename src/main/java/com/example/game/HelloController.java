@@ -81,6 +81,7 @@ public class HelloController {
 
     @FXML
     public void initialize(){
+        PingPongBall pingPongBall = new PingPongBall(ball);
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(5), event -> {
 //            System.out.println(ball.getX());
             // TODO : TOP = -220 Y
@@ -93,48 +94,33 @@ public class HelloController {
 //            if (ball.getX() < 140){
 //                ball.setX(ball.getX() + 1);
 //            }
-            if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent())) {
-                double heightOfFirstBat = firstPlayerRacket.getY() + 90 - 20;
-                double thirdPart = heightOfFirstBat;
-                double secondPart = thirdPart - 23;
-                double firstPart = secondPart - 23;
-                double ballY = ball.getY();
 
-                if (ballY >= secondPart && ballY <= thirdPart) {
-                    System.out.println("thirdPart");
-                } else if (ballY >= firstPart && ballY <= secondPart) {
-                    System.out.println("secondPart");
-                } else if (ballY >= 0 && ballY <= firstPart) {
-                    System.out.println("firstPart");
-                    System.out.println(firstPart);
-                }
-
-
-                System.out.println(heightOfFirstBat);
-                System.out.println(ball.getY());
-                xDir = -1 * xDir ;
-                yDir = 1 * yDir ;
+            if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent()) ) {
+                pingPongBall.setRacket(firstPlayerRacket);
+                pingPongBall.determineMovementOfBall();
             }
-
-            if (ball.getBoundsInParent().intersects(secondPlayerRacket.getBoundsInParent())) {
-//                System.out.println("second player racket");
-                xDir = -1 * xDir ;
-                yDir = -1 * yDir ;
-
+            if (ball.getBoundsInParent().intersects(secondPlayerRacket.getBoundsInParent())){
+                pingPongBall.setRacket(secondPlayerRacket);
+                pingPongBall.determineMovementOfBall();
             }
 
             if (ball.getBoundsInParent().intersects(topBorder.getBoundsInParent())) {
 //                System.out.println("topBorder");
-                yDir = -1 * yDir ;
+                pingPongBall.setYDir(-1 * pingPongBall.getYDir());
+//                yDir = -1 * yDir ;
             }
 
             if (ball.getBoundsInParent().intersects(bottomBorder.getBoundsInParent())) {
 //                System.out.println("bottomBorder");
-                xDir = -1 * xDir;
-                yDir = -1 * yDir ;
+//                xDir = -1 * xDir;
+//                yDir = -1 * yDir ;
+                pingPongBall.setXDir(-1 * pingPongBall.getXDir());
+                pingPongBall.setYDir(-1 * pingPongBall.getYDir());
+
             }
-            ball.setY(ball.getY() + yDir);
-            ball.setX(ball.getX() + xDir);
+
+            ball.setY(ball.getY() + pingPongBall.getYDir());
+            ball.setX(ball.getX() + pingPongBall.getXDir());
 
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
