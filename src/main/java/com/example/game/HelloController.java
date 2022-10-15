@@ -110,8 +110,6 @@ public class HelloController {
                 xDir = -1 * xDir;
                 yDir = -1 * yDir ;
             }
-            System.out.println(xDir);
-            System.out.println(yDir);
             ball.setY(ball.getY() + yDir);
             ball.setX(ball.getX() + xDir);
 
