@@ -9,6 +9,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -93,25 +94,42 @@ public class HelloController {
 //                ball.setX(ball.getX() + 1);
 //            }
             if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent())) {
-                System.out.println("first player racket");
+                double heightOfFirstBat = firstPlayerRacket.getY() + 90 - 20;
+                double thirdPart = heightOfFirstBat;
+                double secondPart = thirdPart - 23;
+                double firstPart = secondPart - 23;
+                double ballY = ball.getY();
+
+                if (ballY >= secondPart && ballY <= thirdPart) {
+                    System.out.println("thirdPart");
+                } else if (ballY >= firstPart && ballY <= secondPart) {
+                    System.out.println("secondPart");
+                } else if (ballY >= 0 && ballY <= firstPart) {
+                    System.out.println("firstPart");
+                    System.out.println(firstPart);
+                }
+
+
+                System.out.println(heightOfFirstBat);
+                System.out.println(ball.getY());
                 xDir = -1 * xDir ;
-                yDir = -1 * yDir ;
+                yDir = 1 * yDir ;
             }
 
             if (ball.getBoundsInParent().intersects(secondPlayerRacket.getBoundsInParent())) {
-                System.out.println("second player racket");
+//                System.out.println("second player racket");
                 xDir = -1 * xDir ;
                 yDir = -1 * yDir ;
 
             }
 
             if (ball.getBoundsInParent().intersects(topBorder.getBoundsInParent())) {
-                System.out.println("topBorder");
+//                System.out.println("topBorder");
                 yDir = -1 * yDir ;
             }
 
             if (ball.getBoundsInParent().intersects(bottomBorder.getBoundsInParent())) {
-                System.out.println("bottomBorder");
+//                System.out.println("bottomBorder");
                 xDir = -1 * xDir;
                 yDir = -1 * yDir ;
             }
