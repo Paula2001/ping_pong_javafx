@@ -80,18 +80,18 @@ public class HelloController {
 
     @FXML
     public void initialize(){
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(15), event -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(5), event -> {
 //            System.out.println(ball.getX());
             // TODO : TOP = -220 Y
             // TODO : BOTTOM = 130 Y
             // TODO : RIGHT = X
             // TODO : LEFT = -445 X
-            if (ball.getY() > -220) {
-                ball.setY(ball.getY() + 1);
-            }
-            if (ball.getX() < 140){
-                ball.setX(ball.getX() + 1);
-            }
+//            if (ball.getY() > -220) {
+//                ball.setY(ball.getY() + 1);
+//            }
+//            if (ball.getX() < 140){
+//                ball.setX(ball.getX() + 1);
+//            }
             if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent())) {
                 System.out.println("first player racket");
             }
@@ -102,11 +102,18 @@ public class HelloController {
 
             if (ball.getBoundsInParent().intersects(topBorder.getBoundsInParent())) {
                 System.out.println("topBorder");
+                yDir = -1 * yDir ;
             }
 
             if (ball.getBoundsInParent().intersects(bottomBorder.getBoundsInParent())) {
                 System.out.println("bottomBorder");
+                xDir = -1 * xDir;
+                yDir = -1 * yDir ;
             }
+            System.out.println(xDir);
+            System.out.println(yDir);
+            ball.setY(ball.getY() + yDir);
+            ball.setX(ball.getX() + xDir);
 
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
