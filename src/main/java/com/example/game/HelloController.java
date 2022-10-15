@@ -1,11 +1,16 @@
 package com.example.game;
 
+import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 public class HelloController {
     private boolean upIsPressed = false;
@@ -18,9 +23,12 @@ public class HelloController {
     @FXML
     public Rectangle ball ;
     @FXML
-    public Rectangle secondPlayerRacket;
-    @FXML
-    public Rectangle firstPlayerRacket;
+    public Rectangle secondPlayerRacket, firstPlayerRacket, topBorder, bottomBorder;
+//    @FXML
+////    public Rectangle firstPlayerRacket;
+
+//    @FXML
+//    public Rectangle topBorder;
 
     @FXML
     public AnchorPane rootPane;
@@ -67,6 +75,42 @@ public class HelloController {
             }
             // Move racket down
         }
+    }
+
+
+    @FXML
+    public void initialize(){
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(15), event -> {
+//            System.out.println(ball.getX());
+            // TODO : TOP = -220 Y
+            // TODO : BOTTOM = 130 Y
+            // TODO : RIGHT = X
+            // TODO : LEFT = -445 X
+            if (ball.getY() > -220) {
+                ball.setY(ball.getY() + 1);
+            }
+            if (ball.getX() < 140){
+                ball.setX(ball.getX() + 1);
+            }
+            if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent())) {
+                System.out.println("first player racket");
+            }
+
+            if (ball.getBoundsInParent().intersects(secondPlayerRacket.getBoundsInParent())) {
+                System.out.println("second player racket");
+            }
+
+            if (ball.getBoundsInParent().intersects(topBorder.getBoundsInParent())) {
+                System.out.println("topBorder");
+            }
+
+            if (ball.getBoundsInParent().intersects(bottomBorder.getBoundsInParent())) {
+                System.out.println("bottomBorder");
+            }
+
+        }));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
     }
 
     @FXML
