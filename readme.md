@@ -20,5 +20,10 @@
 - when player score a game press "r"
 
 
+![alt text](https://github.com/Paula2001/ping_pong_javafx/blob/master/Screenshots/first.png?raw=true)
+![alt text](https://github.com/Paula2001/ping_pong_javafx/blob/master/Screenshots/second.png?raw=true)
+![alt text](https://github.com/Paula2001/ping_pong_javafx/blob/master/Screenshots/third.png?raw=true)
+![alt text](https://github.com/Paula2001/ping_pong_javafx/blob/master/Screenshots/forth.png?raw=true)
 ![alt text](https://github.com/Paula2001/ping_pong_javafx/blob/master/Screenshots/fifth.png?raw=true)
+![alt text](https://github.com/Paula2001/ping_pong_javafx/blob/master/Screenshots/six.png?raw=true)
 ### author : paula gawargious malak - GOR0096
