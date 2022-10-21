@@ -36,7 +36,8 @@ public class GameController {
     public Text firstPlayerScore;
     @FXML
     public Text secondPlayerScore;
-
+    @FXML
+    public Text won;
     @FXML
     private void handleKeyPressed(KeyEvent ke){
         this.firstRacket.registerUpMovement(ke)
@@ -61,12 +62,11 @@ public class GameController {
         this.timeline = new Timeline(new KeyFrame(Duration.millis(SPEED), event -> {
 
             if (this.gameRules.isGoal()){
+                this.gameRules.goalActions();
+                this.firstPlayerScore.setText(Integer.toString(this.gameRules.getFirstPlayerScore()));
+                this.secondPlayerScore.setText(Integer.toString(this.gameRules.getSecondPlayerScore()));
                 if(this.gameRules.checkGameEnded()){
-                    this.gameRules.announceTheWinner();
-                }else {
-                    this.gameRules.goalActions();
-                    this.firstPlayerScore.setText(Integer.toString(this.gameRules.getFirstPlayerScore()));
-                    this.secondPlayerScore.setText(Integer.toString(this.gameRules.getSecondPlayerScore()));
+                    this.won.setText(this.gameRules.announceTheWinner());
                 }
                 this.timeline.pause();
             }

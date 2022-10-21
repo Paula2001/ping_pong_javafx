@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -36,5 +33,10 @@
          </font>
       </Text>
       <Rectangle fx:id="bottomBorder" arcHeight="5.0" fill="#a19e9e" height="21.0" layoutY="390.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="600.0" />
+      <Text fx:id="won" fill="WHITE" layoutX="110.0" layoutY="195.0" stroke="#d65400" strokeDashOffset="2.0" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" text="" textAlignment="CENTER" wrappingWidth="396.64701275852076">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
