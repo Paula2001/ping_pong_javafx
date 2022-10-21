@@ -15,25 +15,31 @@ public class PingPongBall {
     }
 
     public void determineMovementOfBall() {
-        double heightOfFirstBat = racket.getY() + 90 - 20;
-        double thirdPart = heightOfFirstBat;
-        double secondPart = thirdPart - 23;
-        double firstPart = secondPart - 23;
-        double ballY = ball.getY();
+        double startFirstPart = racket.getLayoutY();
+        double endFirstPart = startFirstPart + 20;
+        double endSecondPart = startFirstPart + 65;
+        double endThirdPart = startFirstPart + 90;
+        double ballY = ball.getLayoutY();
 
-        if (ballY >= secondPart && ballY <= thirdPart) {
-            System.out.println("third part");
+        // TODO : Intervals
+        // TODO : First interval layout of racket y -> +20
+        // TODO : Second interval +20 -> +65
+        // TODO : Third interval layout of +65 -> +90
+
+        if (ballY >= startFirstPart && ballY <= endFirstPart) {
+            System.out.println("first part");
             if (yDir != 0) {
                 yDir = -1 * yDir; // TODO -1
             }else {
                 yDir = 1;
             }
             xDir = -1 * xDir ;
-        } else if (ballY > firstPart && ballY < secondPart) {
-            System.out.println("middle");
+        } else if (ballY >= endFirstPart && ballY <= endSecondPart) {
+            System.out.println("second part");
             yDir = 0;
             xDir = -1 * xDir;
-        } else if (ballY >= 0 && ballY <= firstPart) {
+        } else if (ballY >= endSecondPart && ballY <= endThirdPart) {
+            System.out.println("third part");
             if (yDir != 0) {
                 yDir = -1 * yDir; // TODO -1
             }else {
@@ -43,23 +49,23 @@ public class PingPongBall {
         }
 
 
-        System.out.println(heightOfFirstBat);
-        System.out.println(ball.getY());
+//        System.out.println(heightOfFirstBat);
+//        System.out.println(ballY);
     }
 
-    public int getXDir() {
+    public int getLayoutXDir() {
         return xDir;
     }
 
-    public int getYDir() {
+    public int getLayoutYDir() {
         return yDir;
     }
 
-    public void setXDir(int xDir) {
+    public void setLayoutXDir(int xDir) {
         this.xDir = xDir;
     }
 
-    public void setYDir(int yDir) {
+    public void setLayoutYDir(int yDir) {
         this.yDir = yDir;
     }
 

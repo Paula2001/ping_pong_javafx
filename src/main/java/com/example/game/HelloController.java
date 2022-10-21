@@ -15,6 +15,9 @@ import javafx.util.Duration;
 
 public class HelloController {
     private boolean upIsPressed = false;
+
+    private static final float RACKET_TOP_BOUNDARY  = 300;
+    private static final float RACKET_BOTTOM_BOUNDARY  = 10; // TODO : move to another class ...
     private boolean downIsPressed = false;
     private boolean sIsPressed = false;
     private boolean wIsPressed = false;
@@ -40,9 +43,9 @@ public class HelloController {
         if (ke.getCode() == KeyCode.DOWN || this.downIsPressed) {
             // Move racket down
             this.downIsPressed = true;
-            double racket = firstPlayerRacket.getY();
-            if (racket < 80.0 ){
-                firstPlayerRacket.setY(firstPlayerRacket.getY() + 10);
+            double racket = firstPlayerRacket.getLayoutY();
+            if (racket < RACKET_TOP_BOUNDARY ){
+                firstPlayerRacket.setLayoutY(firstPlayerRacket.getLayoutY() + 10);
             }
             // Move racket down
         }
@@ -50,9 +53,9 @@ public class HelloController {
         if (ke.getCode() == KeyCode.UP || this.upIsPressed) {
             // Move racket up
             this.upIsPressed = true;
-            double racket = firstPlayerRacket.getY();
-            if (racket > -190.0 ){
-                firstPlayerRacket.setY(firstPlayerRacket.getY() - 10);
+            double racket = firstPlayerRacket.getLayoutY();
+            if (racket > RACKET_BOTTOM_BOUNDARY ){
+                firstPlayerRacket.setLayoutY(firstPlayerRacket.getLayoutY() - 10);
             }
             // Move racket up
         }
@@ -60,9 +63,9 @@ public class HelloController {
         if (ke.getCode() == KeyCode.S || this.sIsPressed) {
             // Move racket down
             this.sIsPressed = true;
-            double racket = secondPlayerRacket.getY();
-            if (racket < 180.0 ){
-                secondPlayerRacket.setY(secondPlayerRacket.getY() + 10);
+            double racket = secondPlayerRacket.getLayoutY();
+            if (racket < RACKET_TOP_BOUNDARY){
+                secondPlayerRacket.setLayoutY(secondPlayerRacket.getLayoutY() + 10);
             }
             // Move racket down
         }
@@ -70,9 +73,9 @@ public class HelloController {
         if (ke.getCode() == KeyCode.W || this.wIsPressed) {
             // Move racket down
             this.wIsPressed = true;
-            double racket = secondPlayerRacket.getY();
-            if (racket > -90 ){
-                secondPlayerRacket.setY(secondPlayerRacket.getY() - 10);
+            double racket = secondPlayerRacket.getLayoutY();
+            if (racket > 10 ) {
+                secondPlayerRacket.setLayoutY(secondPlayerRacket.getLayoutY() - 10);
             }
             // Move racket down
         }
@@ -81,20 +84,10 @@ public class HelloController {
 
     @FXML
     public void initialize(){
-        PingPongBall pingPongBall = new PingPongBall(ball);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(5), event -> {
-//            System.out.println(ball.getX());
-            // TODO : TOP = -220 Y
-            // TODO : BOTTOM = 130 Y
-            // TODO : RIGHT = X
-            // TODO : LEFT = -445 X
-//            if (ball.getY() > -220) {
-//                ball.setY(ball.getY() + 1);
-//            }
-//            if (ball.getX() < 140){
-//                ball.setX(ball.getX() + 1);
-//            }
 
+
+        PingPongBall pingPongBall = new PingPongBall(ball);
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(5), event -> { // TODO : the speed of the ball
             if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent()) ) {
                 pingPongBall.setRacket(firstPlayerRacket);
                 pingPongBall.determineMovementOfBall();
@@ -106,7 +99,7 @@ public class HelloController {
 
             if (ball.getBoundsInParent().intersects(topBorder.getBoundsInParent())) {
 //                System.out.println("topBorder");
-                pingPongBall.setYDir(-1 * pingPongBall.getYDir());
+                pingPongBall.setLayoutYDir(-1 * pingPongBall.getLayoutYDir());
 //                yDir = -1 * yDir ;
             }
 
@@ -114,13 +107,13 @@ public class HelloController {
 //                System.out.println("bottomBorder");
 //                xDir = -1 * xDir;
 //                yDir = -1 * yDir ;
-                pingPongBall.setXDir(-1 * pingPongBall.getXDir());
-                pingPongBall.setYDir(-1 * pingPongBall.getYDir());
+                pingPongBall.setLayoutXDir(-1 * pingPongBall.getLayoutXDir());
+                pingPongBall.setLayoutYDir(-1 * pingPongBall.getLayoutYDir());
 
             }
 
-            ball.setY(ball.getY() + pingPongBall.getYDir());
-            ball.setX(ball.getX() + pingPongBall.getXDir());
+            ball.setLayoutY(ball.getLayoutY() + pingPongBall.getLayoutYDir());
+            ball.setLayoutX(ball.getLayoutX() + pingPongBall.getLayoutXDir());
 
         }));
         timeline.setCycleCount(Animation.INDEFINITE);

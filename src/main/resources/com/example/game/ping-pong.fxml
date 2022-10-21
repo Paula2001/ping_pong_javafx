@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane
-        maxHeight="-Infinity"
-        maxWidth="-Infinity"
-        minHeight="-Infinity"
-        minWidth="-Infinity"
-        prefHeight="400.0"
-        fx:id="rootPane"
-        prefWidth="600.0"
-        style="-fx-background-color: black;"
-        xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-        fx:controller="com.example.game.HelloController"
-        onKeyPressed="#handleKeyPressed"
-        onKeyReleased="#handleKeyReleased"
->
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleKeyPressed" onKeyReleased="#handleKeyReleased" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game.HelloController">
    <children>
       <Rectangle fx:id="topBorder" arcHeight="5.0" fill="#a19e9e" height="21.0" layoutY="-12.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="600.0" />
       <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="20.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
@@ -31,8 +22,8 @@
       <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="285.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
       <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="317.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
       <Rectangle arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="291.0" layoutY="349.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
-      <Rectangle fx:id="secondPlayerRacket" arcHeight="5.0" fill="#a19e9e" height="90.0" layoutX="14.0" layoutY="118.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
-      <Rectangle fx:id="firstPlayerRacket" arcHeight="5.0" fill="#a19e9e" height="90.0" layoutX="568.0" layoutY="212.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle fx:id="secondPlayerRacket" arcHeight="5.0" fill="#a19e9e" height="90.0" layoutX="14.0" layoutY="10.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
+      <Rectangle fx:id="firstPlayerRacket" arcHeight="5.0" fill="#a19e9e" height="90.0" layoutX="568.0" layoutY="10.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
       <Rectangle fx:id="ball" arcHeight="5.0" fill="#a19e9e" height="21.0" layoutX="444.0" layoutY="229.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
       <Text id="second_player_score" fill="WHITE" layoutX="208.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" wrappingWidth="44.27099609375">
          <font>
@@ -45,5 +36,50 @@
          </font>
       </Text>
       <Rectangle fx:id="bottomBorder" arcHeight="5.0" fill="#a19e9e" height="21.0" layoutY="390.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="600.0" />
+      <GridPane gridLinesVisible="true" layoutX="-1.0" prefHeight="411.0" prefWidth="600.0" style="-fx-region-border: red;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
    </children>
 </AnchorPane>
