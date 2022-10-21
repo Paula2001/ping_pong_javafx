@@ -27,7 +27,7 @@ public class PingPongBall {
                 yDir = 1;
             }
             xDir = -1 * xDir ;
-        } else if (ballY > endFirstPart && ballY < endSecondPart) {
+        } else if (ballY < endSecondPart) {
             yDir = 0;
             xDir = -1 * xDir;
         } else if (ballY >= endSecondPart) {
