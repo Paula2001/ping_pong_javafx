@@ -1,5 +1,9 @@
-package com.example.game;
+package com.example.game.Controllers;
 
+import com.example.game.GameComponents.Rackets.FirstPlayerRacket;
+import com.example.game.GameComponents.Ball.PingPongBall;
+import com.example.game.GameComponents.Rackets.Racket;
+import com.example.game.GameComponents.Rackets.SecondPlayerRacket;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -10,7 +14,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-public class HelloController {
+public class GameController {
 
     PingPongBall pingPongBall;
     Racket firstRacket, secondRacket;
@@ -34,9 +38,9 @@ public class HelloController {
 
     @FXML
     public void initialize(){
+        this.pingPongBall = new PingPongBall(this.ball);
         this.firstRacket = new FirstPlayerRacket(firstPlayerRacket);
         this.secondRacket = new SecondPlayerRacket(secondPlayerRacket);
-        this.pingPongBall = new PingPongBall(this.ball);
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(SPEED), event -> {
             if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent()) ) {
                 // TODO : refactor in the future ...

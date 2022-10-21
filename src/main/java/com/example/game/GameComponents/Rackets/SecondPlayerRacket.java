@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.GameComponents.Rackets;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;

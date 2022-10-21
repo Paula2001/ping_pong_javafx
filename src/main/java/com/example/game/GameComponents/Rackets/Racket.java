@@ -1,9 +1,9 @@
-package com.example.game;
+package com.example.game.GameComponents.Rackets;
 
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
 
-abstract class Racket {
+public abstract class Racket {
     private static final float RACKET_TOP_BOUNDARY  = 300;
     private static final float RACKET_BOTTOM_BOUNDARY  = 10;
     private static final int RACKET_MOVING_RATE = 10;

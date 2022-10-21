@@ -1,16 +1,18 @@
-package com.example.game;
+package com.example.game.GameComponents.Ball;
 
 import javafx.fxml.FXML;
 import javafx.scene.shape.Rectangle;
 
-public class PingPongBall {
+public class PingPongBall { // TODO : add movement of the border in here in the future
     @FXML
-    private Rectangle ball, racket;
+    private final Rectangle ball;
+    @FXML
+    private Rectangle racket;
 
     private int yDir = -1;
     private int xDir = -1;
 
-    PingPongBall(Rectangle b) {
+    public PingPongBall(Rectangle b) {
         ball = b;
     }
 
@@ -22,15 +24,12 @@ public class PingPongBall {
 
         if (ballY <= endFirstPart) {
             yDir = -1 ;
-            xDir = -1 * xDir ;
         } else if (ballY < endSecondPart) {
             yDir = 0;
-            xDir = -1 * xDir;
         } else if (ballY >= endSecondPart) {
             yDir = 1;
-            xDir = -1 * xDir ;
         }
-        return;
+        xDir = -1 * xDir ;
     }
 
     public int getLayoutXDir() {
@@ -41,10 +40,6 @@ public class PingPongBall {
         return yDir;
     }
 
-    public void setLayoutXDir(int xDir) {
-        this.xDir = xDir;
-    }
-
     public void setLayoutYDir(int yDir) {
         this.yDir = yDir;
     }
@@ -52,10 +47,4 @@ public class PingPongBall {
     public void setRacket(Rectangle racket) {
         this.racket = racket;
     }
-
-    public void setBall(Rectangle ball) {
-        this.ball = ball;
-    }
-
-
 }

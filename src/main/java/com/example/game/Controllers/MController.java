@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

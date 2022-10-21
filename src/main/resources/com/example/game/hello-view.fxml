@@ -17,7 +17,7 @@
         prefWidth="-Infinity"
         xmlns="http://javafx.com/javafx/8"
         xmlns:fx="http://javafx.com/fxml/1"
-        fx:controller="com.example.game.MController"
+        fx:controller="com.example.game.Controllers.MController"
 >
     <children>
         <Label style="-fx-text-fill: yellow;" fx:id="welcomeText"/>
