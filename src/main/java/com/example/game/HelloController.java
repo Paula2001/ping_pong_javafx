@@ -21,8 +21,8 @@ public class HelloController {
     private boolean downIsPressed = false;
     private boolean sIsPressed = false;
     private boolean wIsPressed = false;
-    private int xDir = 1;
-    private int yDir = 1;
+
+    private static final int SPEED = 5;
 
     @FXML
     public Rectangle ball ;
@@ -87,7 +87,7 @@ public class HelloController {
 
 
         PingPongBall pingPongBall = new PingPongBall(ball);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(5), event -> { // TODO : the speed of the ball
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(SPEED), event -> { // TODO : the speed of the ball
             if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent()) ) {
                 pingPongBall.setRacket(firstPlayerRacket);
                 pingPongBall.determineMovementOfBall();
@@ -98,23 +98,16 @@ public class HelloController {
             }
 
             if (ball.getBoundsInParent().intersects(topBorder.getBoundsInParent())) {
-//                System.out.println("topBorder");
                 pingPongBall.setLayoutYDir(-1 * pingPongBall.getLayoutYDir());
-//                yDir = -1 * yDir ;
             }
 
             if (ball.getBoundsInParent().intersects(bottomBorder.getBoundsInParent())) {
-//                System.out.println("bottomBorder");
-//                xDir = -1 * xDir;
-//                yDir = -1 * yDir ;
-                pingPongBall.setLayoutXDir(-1 * pingPongBall.getLayoutXDir());
                 pingPongBall.setLayoutYDir(-1 * pingPongBall.getLayoutYDir());
 
             }
 
             ball.setLayoutY(ball.getLayoutY() + pingPongBall.getLayoutYDir());
             ball.setLayoutX(ball.getLayoutX() + pingPongBall.getLayoutXDir());
-
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();

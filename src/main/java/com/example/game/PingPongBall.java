@@ -7,8 +7,8 @@ public class PingPongBall {
     @FXML
     private Rectangle ball, racket;
 
-    private int yDir = 1;
-    private int xDir = 1;
+    private int yDir = -1;
+    private int xDir = -1;
 
     PingPongBall(Rectangle b) {
         ball = b;
