@@ -16,41 +16,29 @@ public class PingPongBall {
 
     public void determineMovementOfBall() {
         double startFirstPart = racket.getLayoutY();
-        double endFirstPart = startFirstPart + 20;
-        double endSecondPart = startFirstPart + 65;
-        double endThirdPart = startFirstPart + 90;
+        double endFirstPart = startFirstPart + 30;
+        double endSecondPart = startFirstPart + 55;
         double ballY = ball.getLayoutY();
 
-        // TODO : Intervals
-        // TODO : First interval layout of racket y -> +20
-        // TODO : Second interval +20 -> +65
-        // TODO : Third interval layout of +65 -> +90
-
-        if (ballY >= startFirstPart && ballY <= endFirstPart) {
-            System.out.println("first part");
+        if (ballY <= endFirstPart) {
             if (yDir != 0) {
-                yDir = -1 * yDir; // TODO -1
+                yDir = -1 * yDir;
             }else {
                 yDir = 1;
             }
             xDir = -1 * xDir ;
-        } else if (ballY >= endFirstPart && ballY <= endSecondPart) {
-            System.out.println("second part");
+        } else if (ballY > endFirstPart && ballY < endSecondPart) {
             yDir = 0;
             xDir = -1 * xDir;
-        } else if (ballY >= endSecondPart && ballY <= endThirdPart) {
-            System.out.println("third part");
+        } else if (ballY >= endSecondPart) {
             if (yDir != 0) {
-                yDir = -1 * yDir; // TODO -1
+                yDir = -1 * yDir;
             }else {
                 yDir = 1;
             }
             xDir = -1 * xDir ;
         }
-
-
-//        System.out.println(heightOfFirstBat);
-//        System.out.println(ballY);
+        return;
     }
 
     public int getLayoutXDir() {
