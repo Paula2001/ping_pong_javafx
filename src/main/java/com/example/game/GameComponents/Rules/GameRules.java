@@ -3,7 +3,7 @@ package com.example.game.GameComponents.Rules;
 import com.example.game.GameComponents.Ball.PingPongBall;
 
 public class GameRules {
-    private int firstPlayerScore = 0;
+    private int firstPlayerScore = 10;
     private int secondPlayerScore = 0;
 
     private final PingPongBall ball;
@@ -48,7 +48,7 @@ public class GameRules {
     }
 
     public boolean checkGameEnded(){
-        return firstPlayerScore > 10 || secondPlayerScore > 10;
+        return firstPlayerScore >= 10 || secondPlayerScore >= 10;
     }
 
     public String announceTheWinner(){

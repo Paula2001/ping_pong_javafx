@@ -67,8 +67,8 @@ public class GameController {
                     this.gameRules.goalActions();
                     this.firstPlayerScore.setText(Integer.toString(this.gameRules.getFirstPlayerScore()));
                     this.secondPlayerScore.setText(Integer.toString(this.gameRules.getSecondPlayerScore()));
-                    this.timeline.pause();
                 }
+                this.timeline.pause();
             }
 
             if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent()) ) {

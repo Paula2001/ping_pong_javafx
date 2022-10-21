@@ -25,12 +25,12 @@
       <Rectangle fx:id="secondPlayerRacket" arcHeight="5.0" fill="#a19e9e" height="90.0" layoutX="14.0" layoutY="10.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
       <Rectangle fx:id="firstPlayerRacket" arcHeight="5.0" fill="#a19e9e" height="90.0" layoutX="568.0" layoutY="10.0" stroke="#b92929" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
       <Rectangle fx:id="ball" arcHeight="5.0" fill="#A10002" height="21.0" layoutX="444.0" layoutY="229.0" stroke="#A10002" strokeMiterLimit="0.0" strokeWidth="0.0" width="18.0" />
-      <Text fx:id="secondPlayerScore" fill="WHITE" layoutX="208.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="44.27099609375">
+      <Text fx:id="secondPlayerScore" fill="WHITE" layoutX="208.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="100.27099609375">
          <font>
             <Font size="59.0" />
          </font>
       </Text>
-      <Text fx:id="firstPlayerScore" fill="WHITE" layoutX="347.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="44.27099609375">
+      <Text fx:id="firstPlayerScore" fill="WHITE" layoutX="347.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="100.27099609375">
          <font>
             <Font size="59.0" />
          </font>
