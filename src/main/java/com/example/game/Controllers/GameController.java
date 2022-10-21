@@ -4,6 +4,7 @@ import com.example.game.GameComponents.Rackets.FirstPlayerRacket;
 import com.example.game.GameComponents.Ball.PingPongBall;
 import com.example.game.GameComponents.Rackets.Racket;
 import com.example.game.GameComponents.Rackets.SecondPlayerRacket;
+import com.example.game.GameComponents.Rules.GameRules;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -18,6 +19,9 @@ public class GameController {
 
     PingPongBall pingPongBall;
     Racket firstRacket, secondRacket;
+    GameRules gameRules;
+
+    private Timeline timeline;
     private static final int SPEED = 5;
     @FXML
     public Rectangle ball ;
@@ -41,7 +45,21 @@ public class GameController {
         this.pingPongBall = new PingPongBall(this.ball);
         this.firstRacket = new FirstPlayerRacket(firstPlayerRacket);
         this.secondRacket = new SecondPlayerRacket(secondPlayerRacket);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(SPEED), event -> {
+        this.gameRules = new GameRules(pingPongBall);
+
+
+        this.timeline = new Timeline(new KeyFrame(Duration.millis(SPEED), event -> {
+
+            if (this.gameRules.isGoal()){
+                if(this.gameRules.checkGameEnded()){
+                    this.gameRules.announceTheWinner();
+                }else {
+                    System.out.println("time line is stopped");
+                    this.gameRules.goalActions();
+                    this.timeline.pause();
+                }
+            }
+
             if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent()) ) {
                 // TODO : refactor in the future ...
                 this.pingPongBall.setRacket(firstPlayerRacket);
@@ -55,7 +73,6 @@ public class GameController {
             if (ball.getBoundsInParent().intersects(topBorder.getBoundsInParent())) {
                 this.pingPongBall.setLayoutYDir(-1 * this.pingPongBall.getLayoutYDir());
             }
-
             if (ball.getBoundsInParent().intersects(bottomBorder.getBoundsInParent())) {
                 this.pingPongBall.setLayoutYDir(-1 * this.pingPongBall.getLayoutYDir());
 

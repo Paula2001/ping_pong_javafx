@@ -47,4 +47,8 @@ public class PingPongBall { // TODO : add movement of the border in here in the 
     public void setRacket(Rectangle racket) {
         this.racket = racket;
     }
+
+    public void centerBall(){
+
+    }
 }
