@@ -45,8 +45,12 @@ public class GameController {
         this.secondRacket.registerUpMovement(ke)
                 .registerDownMovement(ke);
 
-        if (ke.getCode() == KeyCode.P){
+        if (ke.getCode() == KeyCode.R){
             this.timeline.play();
+        }
+
+        if (ke.getCode() == KeyCode.P){
+            this.timeline.pause();
         }
 
     }
@@ -68,6 +72,7 @@ public class GameController {
                 if(this.gameRules.checkGameEnded()){
                     this.won.setText(this.gameRules.announceTheWinner());
                 }
+
                 this.timeline.pause();
             }
 
