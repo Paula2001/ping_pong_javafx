@@ -21,21 +21,13 @@ public class PingPongBall {
         double ballY = ball.getLayoutY();
 
         if (ballY <= endFirstPart) {
-            if (yDir != 0) {
-                yDir = -1 * yDir;
-            }else {
-                yDir = 1;
-            }
+            yDir = -1 ;
             xDir = -1 * xDir ;
         } else if (ballY < endSecondPart) {
             yDir = 0;
             xDir = -1 * xDir;
         } else if (ballY >= endSecondPart) {
-            if (yDir != 0) {
-                yDir = -1 * yDir;
-            }else {
-                yDir = 1;
-            }
+            yDir = 1;
             xDir = -1 * xDir ;
         }
         return;

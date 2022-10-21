@@ -14,6 +14,10 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class HelloController {
+    @FXML
+    public Rectangle ball ;
+    PingPongBall pingPongBall;
+
     private boolean upIsPressed = false;
 
     private static final float RACKET_TOP_BOUNDARY  = 300;
@@ -24,16 +28,9 @@ public class HelloController {
 
     private static final int SPEED = 5;
 
-    @FXML
-    public Rectangle ball ;
+
     @FXML
     public Rectangle secondPlayerRacket, firstPlayerRacket, topBorder, bottomBorder;
-//    @FXML
-////    public Rectangle firstPlayerRacket;
-
-//    @FXML
-//    public Rectangle topBorder;
-
     @FXML
     public AnchorPane rootPane;
     public Text firstPlayerScore;
@@ -84,30 +81,28 @@ public class HelloController {
 
     @FXML
     public void initialize(){
-
-
-        PingPongBall pingPongBall = new PingPongBall(ball);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(SPEED), event -> { // TODO : the speed of the ball
+        this.pingPongBall = new PingPongBall(this.ball);
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(SPEED), event -> {
             if (ball.getBoundsInParent().intersects(firstPlayerRacket.getBoundsInParent()) ) {
-                pingPongBall.setRacket(firstPlayerRacket);
-                pingPongBall.determineMovementOfBall();
+                this.pingPongBall.setRacket(firstPlayerRacket);
+                this.pingPongBall.determineMovementOfBall();
             }
             if (ball.getBoundsInParent().intersects(secondPlayerRacket.getBoundsInParent())){
-                pingPongBall.setRacket(secondPlayerRacket);
-                pingPongBall.determineMovementOfBall();
+                this.pingPongBall.setRacket(secondPlayerRacket);
+                this.pingPongBall.determineMovementOfBall();
             }
 
             if (ball.getBoundsInParent().intersects(topBorder.getBoundsInParent())) {
-                pingPongBall.setLayoutYDir(-1 * pingPongBall.getLayoutYDir());
+                this.pingPongBall.setLayoutYDir(-1 * this.pingPongBall.getLayoutYDir());
             }
 
             if (ball.getBoundsInParent().intersects(bottomBorder.getBoundsInParent())) {
-                pingPongBall.setLayoutYDir(-1 * pingPongBall.getLayoutYDir());
+                this.pingPongBall.setLayoutYDir(-1 * this.pingPongBall.getLayoutYDir());
 
             }
 
-            ball.setLayoutY(ball.getLayoutY() + pingPongBall.getLayoutYDir());
-            ball.setLayoutX(ball.getLayoutX() + pingPongBall.getLayoutXDir());
+            ball.setLayoutY(ball.getLayoutY() + this.pingPongBall.getLayoutYDir());
+            ball.setLayoutX(ball.getLayoutX() + this.pingPongBall.getLayoutXDir());
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
