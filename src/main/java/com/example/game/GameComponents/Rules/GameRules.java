@@ -8,12 +8,29 @@ public class GameRules {
 
     private final PingPongBall ball;
 
+    private Players playerScoredGoal = Players.NONE;
+
+    private static final int RIGHT_BOUNDARY = -20;
+    private static final int LEFT_BOUNDARY = 600;
+
     public GameRules(PingPongBall ball){
         this.ball = ball;
     }
 
     public boolean isGoal(){
-        return this.ball.getLayoutYDir() > 0 || this.ball.getLayoutYDir() < 100; // TODO : change this later
+        boolean firstPlayerGoal = this.ball.getBall().getLayoutX() < RIGHT_BOUNDARY;
+        boolean secondPlayerGoal = this.ball.getBall().getLayoutX() > LEFT_BOUNDARY;
+
+        if (firstPlayerGoal){
+            playerScoredGoal = Players.FIRST_PLAYER;
+            return true;
+        }
+
+        if (secondPlayerGoal){
+            playerScoredGoal = Players.SECOND_PLAYER;
+            return true;
+        }
+        return false;
     }
 
     public void goalActions(){
@@ -22,11 +39,12 @@ public class GameRules {
     }
 
     private void countGoal(){
-        if(isGoalForFirstPlayer(ball)) {
+        if(isGoalForFirstPlayer()) {
             this.firstPlayerScore += 1;
-        }else if (isGoalForSecondPlayer(ball)){
+        }else if (isGoalForSecondPlayer()){
             this.secondPlayerScore += 1;
         }
+        playerScoredGoal = Players.NONE;
     }
 
     public boolean checkGameEnded(){
@@ -43,11 +61,19 @@ public class GameRules {
 
     }
 
-    private boolean isGoalForFirstPlayer(PingPongBall ball){
-        return false;
+    private boolean isGoalForFirstPlayer(){
+        return playerScoredGoal == Players.FIRST_PLAYER;
     }
 
-    private boolean isGoalForSecondPlayer(PingPongBall ball){
-        return false;
+    private boolean isGoalForSecondPlayer(){
+        return playerScoredGoal == Players.SECOND_PLAYER;
+    }
+
+    public int getFirstPlayerScore(){
+        return this.firstPlayerScore;
+    }
+
+    public int getSecondPlayerScore(){
+        return this.secondPlayerScore;
     }
 }

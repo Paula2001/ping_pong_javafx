@@ -49,6 +49,12 @@ public class PingPongBall { // TODO : add movement of the border in here in the 
     }
 
     public void centerBall(){
+        this.ball.setLayoutX(285);
+        this.ball.setLayoutY(180);
 
+    }
+
+    public Rectangle getBall(){
+        return ball;
     }
 }

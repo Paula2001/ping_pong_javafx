@@ -9,11 +9,14 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+
+import java.io.Console;
 
 public class GameController {
 
@@ -29,7 +32,10 @@ public class GameController {
     public Rectangle secondPlayerRacket, firstPlayerRacket, topBorder, bottomBorder;
     @FXML
     public AnchorPane rootPane;
+    @FXML
     public Text firstPlayerScore;
+    @FXML
+    public Text secondPlayerScore;
 
     @FXML
     private void handleKeyPressed(KeyEvent ke){
@@ -37,6 +43,11 @@ public class GameController {
                 .registerDownMovement(ke);
         this.secondRacket.registerUpMovement(ke)
                 .registerDownMovement(ke);
+
+        if (ke.getCode() == KeyCode.P){
+            this.timeline.play();
+        }
+
     }
 
 
@@ -47,15 +58,15 @@ public class GameController {
         this.secondRacket = new SecondPlayerRacket(secondPlayerRacket);
         this.gameRules = new GameRules(pingPongBall);
 
-
         this.timeline = new Timeline(new KeyFrame(Duration.millis(SPEED), event -> {
 
             if (this.gameRules.isGoal()){
                 if(this.gameRules.checkGameEnded()){
                     this.gameRules.announceTheWinner();
                 }else {
-                    System.out.println("time line is stopped");
                     this.gameRules.goalActions();
+                    this.firstPlayerScore.setText(Integer.toString(this.gameRules.getFirstPlayerScore()));
+                    this.secondPlayerScore.setText(Integer.toString(this.gameRules.getSecondPlayerScore()));
                     this.timeline.pause();
                 }
             }
