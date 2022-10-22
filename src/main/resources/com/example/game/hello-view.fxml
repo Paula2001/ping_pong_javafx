@@ -17,11 +17,11 @@
         prefWidth="-Infinity"
         xmlns="http://javafx.com/javafx/8"
         xmlns:fx="http://javafx.com/fxml/1"
-        fx:controller="com.example.game.Controllers.MController"
+        fx:controller="com.example.game.Controllers.FirstScreenController"
 >
     <children>
         <Label style="-fx-text-fill: yellow;" fx:id="welcomeText"/>
-        <Button style="--fxbackground-color: red;" text="second slide!" onAction="#onHelloButtonClick"/>
+        <Button style="--fxbackground-color: red;" text="second slide!" onAction="#onStartGameClick"/>
     </children>
 </AnchorPane>
 

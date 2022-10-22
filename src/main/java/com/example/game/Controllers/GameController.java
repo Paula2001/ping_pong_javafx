@@ -14,6 +14,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.Console;
@@ -23,6 +24,8 @@ public class GameController {
     PingPongBall pingPongBall;
     Racket firstRacket, secondRacket;
     GameRules gameRules;
+
+    private String firstPlayerName;
 
     private Timeline timeline;
     private static final int SPEED = 5;
@@ -38,6 +41,10 @@ public class GameController {
     public Text secondPlayerScore;
     @FXML
     public Text won;
+    @FXML
+    public Text firstPlayer;
+    @FXML
+    public Text secondPlayer;
     @FXML
     private void handleKeyPressed(KeyEvent ke){
         this.firstRacket.registerUpMovement(ke)
@@ -55,6 +62,10 @@ public class GameController {
 
     }
 
+    public void setFirstPlayerNameAndSecondPlayerName(String firstPlayerName, String secondPlayerName){
+        firstPlayer.setText(firstPlayerName);
+        secondPlayer.setText(secondPlayerName);
+    }
 
     @FXML
     public void initialize(){
