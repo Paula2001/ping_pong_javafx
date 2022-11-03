@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="game:jar">
+  <artifact type="jar" name="game:jar">
     <output-path>$USER_HOME$</output-path>
     <root id="archive" name="game.jar">
       <element id="module-output" name="game" />
@@ -73,6 +73,9 @@
       <element id="library" level="project" name="Maven: org.openjfx:javafx-media:18.0.1" />
       <element id="library" level="project" name="Maven: org.openjfx:javafx-media:linux:18.0.1" />
       <element id="library" level="project" name="Maven: org.opentest4j:opentest4j:1.2.0" />
+      <element id="library" level="project" name="Maven: junit:junit:4.10" />
+      <element id="library" level="project" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" />
+      <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.1" />
     </root>
   </artifact>
 </component>

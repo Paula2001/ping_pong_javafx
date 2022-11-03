@@ -18,7 +18,6 @@ public class HelloApplication extends Application {
             FileDatabase.WriteToDatabase("[]");
         }
         FileDatabase.AddNewRecordToDatabase("malak", 0);
-        System.out.println(FileDatabase.getHighestScore());
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("start-screen.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Ping pong game");

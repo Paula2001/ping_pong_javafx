@@ -74,7 +74,6 @@ public class FileDatabase {
         String data = "";
         while (s.hasNextLine()) {
             data = s.nextLine();
-            System.out.println(data);
         }
         s.close();
         return data;
