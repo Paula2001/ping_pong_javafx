@@ -51,14 +51,12 @@ public class GameRules {
         return firstPlayerScore >= 10 || secondPlayerScore >= 10;
     }
 
-    public String announceTheWinner(){
+    public String announceTheWinner(String firstName, String secondName){
 
         if (firstPlayerScore >= 10){
-            return "first player won ! シ";
-        }else{
-            return "second player won ! シ";
+            return firstName;
         }
-
+        return secondName;
     }
 
     private boolean isGoalForFirstPlayer(){

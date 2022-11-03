@@ -1,5 +1,6 @@
 package com.example.game.Controllers;
 
+import com.example.game.Database.FileDatabase;
 import com.example.game.GameComponents.Rackets.FirstPlayerRacket;
 import com.example.game.GameComponents.Ball.PingPongBall;
 import com.example.game.GameComponents.Rackets.Racket;
@@ -16,8 +17,10 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.json.simple.parser.ParseException;
 
 import java.io.Console;
+import java.io.IOException;
 
 public class GameController {
 
@@ -26,6 +29,7 @@ public class GameController {
     GameRules gameRules;
 
     private String firstPlayerName;
+    private String secondPlayerName;
 
     private Timeline timeline;
     private static final int SPEED = 5;
@@ -81,7 +85,13 @@ public class GameController {
                 this.firstPlayerScore.setText(Integer.toString(this.gameRules.getFirstPlayerScore()));
                 this.secondPlayerScore.setText(Integer.toString(this.gameRules.getSecondPlayerScore()));
                 if(this.gameRules.checkGameEnded()){
-                    this.won.setText(this.gameRules.announceTheWinner());
+                    var name = this.gameRules.announceTheWinner(this.firstPlayer.getText(), this.secondPlayer.getText());
+                    this.won.setText(name+" won ! シ");
+                    try {
+                        FileDatabase.AddNewRecordToDatabase(name,1);
+                    } catch (IOException | ParseException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
 
                 this.timeline.pause();
