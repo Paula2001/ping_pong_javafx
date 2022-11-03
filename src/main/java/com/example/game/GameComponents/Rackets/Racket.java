@@ -32,7 +32,7 @@ public abstract class Racket {
 
 
 
-    public class SecondPlayerRacket extends Racket{
+    public static class SecondPlayerRacket extends Racket{
         private final Rectangle racket;
         private boolean sIsPressed = false, wIsPressed = false;
 
@@ -69,7 +69,7 @@ public abstract class Racket {
     }
 
 
-    public class FirstPlayerRacket extends Racket{
+    public static class FirstPlayerRacket extends Racket{
         private final Rectangle racket;
         private boolean downIsPressed = false, upIsPressed = false;
 

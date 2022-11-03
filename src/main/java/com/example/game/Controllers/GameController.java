@@ -1,9 +1,7 @@
 package com.example.game.Controllers;
 
-import com.example.game.GameComponents.Rackets.FirstPlayerRacket;
 import com.example.game.GameComponents.Ball.PingPongBall;
 import com.example.game.GameComponents.Rackets.Racket;
-import com.example.game.GameComponents.Rackets.SecondPlayerRacket;
 import com.example.game.GameComponents.Rules.GameRules;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -14,10 +12,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import java.io.Console;
 
 public class GameController {
 
@@ -70,8 +65,8 @@ public class GameController {
     @FXML
     public void initialize(){
         this.pingPongBall = new PingPongBall(this.ball);
-        this.firstRacket = new FirstPlayerRacket(firstPlayerRacket);
-        this.secondRacket = new SecondPlayerRacket(secondPlayerRacket);
+        this.firstRacket = new Racket.FirstPlayerRacket(firstPlayerRacket);
+        this.secondRacket = new Racket.SecondPlayerRacket(secondPlayerRacket);
         this.gameRules = new GameRules(pingPongBall);
 
         this.timeline = new Timeline(new KeyFrame(Duration.millis(SPEED), event -> {
